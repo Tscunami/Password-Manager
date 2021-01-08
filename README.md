@@ -2,7 +2,7 @@
 
 ---
 
-Offline Password Manager storing:
+#### Stored information:
 * **🌐 Domain**
 * **👤 Username / 📧 Email**
 * **🗝️ Password**   
