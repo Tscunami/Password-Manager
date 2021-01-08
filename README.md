@@ -1,4 +1,4 @@
-# Password Manager
+# 🔒 Password Manager 🔒
 
 ---
 
