@@ -1,11 +1,11 @@
-# Password Manager
+# 🔒🔑 Password Manager 🔑🔒
 
 ---
 
-Offline Password Manager storing:
-* **Domain**
-* **Username / Email**
-* **Password**   
+#### Stored information:
+* **🌐 Domain**
+* **👤 Username / 📧 Email**
+* **🗝️ Password**   
 
 ---
 ### Features
