@@ -3,6 +3,7 @@ from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
 import os
+from os import startfile
 
 
 GRAY = "#394867"
@@ -73,13 +74,17 @@ def save():
     website_entry.focus()
 
 
+def show_data():
+    startfile("data.txt")
+
+
 app = Tk()
 app.title("Password Manager`")
 app.config(padx=50, pady=45, bg=GRAY)
 
 
 canvas = Canvas(width=200, height=200, bg=GRAY, highlightthickness=0)
-lock_image = PhotoImage(file="lock.png")
+lock_image = PhotoImage(file="images/lock.png")
 
 canvas.create_image(100, 80, image=lock_image)
 canvas.grid(row=0, column=1)
@@ -94,7 +99,8 @@ checked_state = IntVar()
 checkbutton = Checkbutton(text="Save", variable=checked_state, bg=GRAY, font=FONT_NAME, fg="white", selectcolor=GRAY)
 password_entry = Entry(width=30)
 generate_button = Button(text="Generate password", command=generate_password, bg=BLUE, highlightthickness=0)
-add_button = Button(text="Add", width=43, command=save, bg=BLUE, )
+add_button = Button(text="Add", width=25, command=save, bg=BLUE, )
+show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
 
 # Add GUI elements on the screen
 website_label.grid(row=1, column=0, sticky="e")
@@ -107,6 +113,7 @@ email_entry.insert(0, get_email())
 checkbutton.grid(row=2, column=2, sticky="e")
 password_entry.grid(row=3, column=1, sticky="w")
 generate_button.grid(row=3, column=2, sticky="w")
-add_button.grid(row=4, column=1, columnspan=2, sticky="w")
+add_button.grid(row=4, column=1, sticky="w")
+show_passwords_button.grid(row=4, column=2, sticky="w")
 
 app.mainloop()
