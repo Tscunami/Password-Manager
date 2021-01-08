@@ -73,12 +73,12 @@ def save():
     website_entry.focus()
 
 
-def show_data():
-    startfile("data.txt")
+# def show_data():
+#     startfile("data.txt")🔒🔑 Password Manager 🔑🔒
 
 
 app = Tk()
-app.title("Password Manager")
+app.title("🔒🔑 Password Manager 🔑🔒")
 app.config(padx=50, pady=45, bg=GRAY)
 
 
