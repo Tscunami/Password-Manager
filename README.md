@@ -3,9 +3,9 @@
 ---
 
 Offline Password Manager storing:
-* **Domain**
-* **Username / Email**
-* **Password**   
+* **🌐 Domain**
+* **👤 Username / 📧 Email**
+* **🗝️ Password**   
 
 ---
 ### Features
