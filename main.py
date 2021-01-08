@@ -3,8 +3,7 @@ from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
 import os
-from os import startfile
-
+# from os import startfile
 
 GRAY = "#394867"
 WHITE = "#f1f6f9"
@@ -79,7 +78,7 @@ def show_data():
 
 
 app = Tk()
-app.title("Password Manager`")
+app.title("Password Manager")
 app.config(padx=50, pady=45, bg=GRAY)
 
 
@@ -100,7 +99,9 @@ checkbutton = Checkbutton(text="Save", variable=checked_state, bg=GRAY, font=FON
 password_entry = Entry(width=30)
 generate_button = Button(text="Generate password", command=generate_password, bg=BLUE, highlightthickness=0)
 add_button = Button(text="Add", width=25, command=save, bg=BLUE, )
-show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
+
+# show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
+show_passwords_button = Button(text="Show Data", width=14, bg=BLUE)
 
 # Add GUI elements on the screen
 website_label.grid(row=1, column=0, sticky="e")
