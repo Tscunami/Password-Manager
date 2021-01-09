@@ -3,7 +3,7 @@ from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
 import os
-# from os import startfile
+from sys import platform  # To detect which OS user using
 
 GRAY = "#394867"
 WHITE = "#f1f6f9"
@@ -73,8 +73,9 @@ def save():
     website_entry.focus()
 
 
-# def show_data():
-#     startfile("data.txt")🔒🔑 Password Manager 🔑🔒
+def show_data():
+    from os import startfile
+    startfile("data.txt")
 
 
 app = Tk()
@@ -100,8 +101,10 @@ password_entry = Entry(width=30)
 generate_button = Button(text="Generate password", command=generate_password, bg=BLUE, highlightthickness=0)
 add_button = Button(text="Add", width=25, command=save, bg=BLUE, )
 
-# show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
-show_passwords_button = Button(text="Show Data", width=14, bg=BLUE)
+if platform == "win32":
+    show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
+else:
+    show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, state=DISABLED)
 
 # Add GUI elements on the screen
 website_label.grid(row=1, column=0, sticky="e")
