@@ -10,11 +10,11 @@
 ---
 ### Features
 * **Generate password** button generates a new strong 
-  password and copy it to clipboard
+  password and copies it to clipboard
 * **Save** checkbox will store email for next use
 * **Show Data** button shows all login information  
-* **Search** button search login information for given website  
-* **Add** button will add new item in database
+* **Search** button searches login information for given website  
+* **Add** button will add a new item to database
 ---
 
 ### GUI   
