@@ -78,7 +78,7 @@ def save():
                     file.write(email)
             else:
                 email_entry.delete(0, END)
-                email_entry.insert(0, get_email)
+                email_entry.insert(0, get_email())
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
@@ -92,19 +92,35 @@ def find_password():
         with open("data.json", mode="r") as data_file:
             data = json.load(data_file)
     except FileNotFoundError:
-        messagebox.showinfo(title=website, message=f"No Data File Found.")
+        messagebox.showinfo(title="Error", message=f"No Data File Found.")
     else:
         if website in data:
-            print(data[website])
             messagebox.showinfo(title=website, message=f"Email: {data[website]['email']}\n"
                                                        f"Password: {data[website]['password']}")
         else:
-            messagebox.showinfo(title=website, message=f"No details for the website exists.")
+            messagebox.showinfo(title="Error", message=f"No details for the website exists.")
 
 
 def show_data():
-    from os import startfile
-    startfile("data.json")
+
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message=f"No Data File Found.")
+    else:
+        to_return = "Website ------- Email / Username ------- Password\n" \
+                    "-------------------------------------" \
+                    "---------------------------\n"
+        for website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            to_return += f"{website}  {email}  {password}\n"
+            to_return += "-------------------------------------" \
+                    "---------------------------\n"
+        messagebox.showinfo(title="Database", message=to_return)
+
+
 
 
 app = Tk()
