@@ -7,7 +7,7 @@ from sys import platform  # To detect which OS user using
 
 GRAY = "#394867"
 WHITE = "#f1f6f9"
-BLUE = "#fff8cd"
+YELLOW = "#fff8cd"
 FONT_NAME = ("Courier", 12, "bold")
 
 
@@ -98,13 +98,13 @@ email_entry = Entry(width=45)
 checked_state = IntVar()
 checkbutton = Checkbutton(text="Save", variable=checked_state, bg=GRAY, font=FONT_NAME, fg="white", selectcolor=GRAY)
 password_entry = Entry(width=30)
-generate_button = Button(text="Generate password", command=generate_password, bg=BLUE, highlightthickness=0)
-add_button = Button(text="Add", width=25, command=save, bg=BLUE, )
+generate_button = Button(text="Generate password", command=generate_password, bg=YELLOW, highlightthickness=0)
+add_button = Button(text="Add", width=25, command=save, bg=YELLOW, )
 
 if platform == "win32":
-    show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
+    show_passwords_button = Button(text="Show Data", width=14, bg=YELLOW, command=show_data)
 else:
-    show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, state=DISABLED)
+    show_passwords_button = Button(text="Show Data", width=14, bg=YELLOW, state=DISABLED)
 
 # Add GUI elements on the screen
 website_label.grid(row=1, column=0, sticky="e")
