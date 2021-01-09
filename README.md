@@ -9,26 +9,21 @@
 
 ---
 ### Features
-* **Generate a password** generates a new strong 
-  password and copy it  
+* **Generate password** button generates a new strong 
+  password and copy it to clipboard
 * **Save** checkbox will store email for next use
-* **Show Data** button opens data file 
-with stored passwords
-  
----  
-### Bugs
-* **Show Data** button currently working only in **Windows**
-  
-    ```
-    # Line 104
-    if platform == "win32":
-      show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, command=show_data)
-    else:
-      show_passwords_button = Button(text="Show Data", width=14, bg=BLUE, state=DISABLED)
-    ```  
-     
+* **Show Data** button shows all login information  
+* **Search** button search login information for given website  
+* **Add** button will add new item in database
 ---
 
 ### GUI   
-   
-![](images/gui.png)
+
+#### Lobby:
+![](images/gui_Page_1.png)
+
+#### Show Data button clicked:
+![](images/gui_Page_2.png)
+
+#### Search button clicked:
+![](images/gui_Page_3.png)

@@ -3,7 +3,6 @@ from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip            # For instantly copy text to clipboard
 import os                   # For checking if file not empty
-from sys import platform    # To detect which OS user using
 import json                 # For saving data
 
 GRAY = "#394867"
@@ -13,6 +12,9 @@ FONT_NAME = ("Courier", 12, "bold")
 
 
 def get_email():
+    """
+    :rtype: returns user saved email
+    """
     if os.stat("email.txt").st_size != 0:
         with open("email.txt") as file:
             email = file.read()
@@ -22,6 +24,9 @@ def get_email():
 
 
 def generate_password():
+    """
+    generates new random password, inserts it in password entry and copy it to clipboard
+    """
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
                'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
                'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -43,6 +48,9 @@ def generate_password():
 
 
 def save():
+    """
+    saves all entries to data.json file
+    """
     website = website_entry.get().title()
     email = email_entry.get()
     password = password_entry.get()
@@ -86,6 +94,9 @@ def save():
 
 
 def find_password():
+    """
+    shows messagebox with login information of given website
+    """
     website = website_entry.get().title()
 
     try:
@@ -102,7 +113,9 @@ def find_password():
 
 
 def show_data():
-
+    """
+    shows messagebox with all content from data.json
+    """
     try:
         with open("data.json", "r") as data_file:
             data = json.load(data_file)
@@ -119,8 +132,6 @@ def show_data():
             to_return += "-------------------------------------" \
                     "---------------------------\n"
         messagebox.showinfo(title="Database", message=to_return)
-
-
 
 
 app = Tk()
@@ -147,11 +158,8 @@ password_entry = Entry(width=30)
 generate_button = Button(text="Generate password", command=generate_password,
                          bg=YELLOW, width=15)
 add_button = Button(text="Add", width=25, command=save, bg=YELLOW, )
+show_passwords_button = Button(text="Show Data", width=15, bg=YELLOW, command=show_data)
 
-if platform == "win32":
-    show_passwords_button = Button(text="Show Data", width=15, bg=YELLOW, command=show_data)
-else:
-    show_passwords_button = Button(text="Show Data", width=15, bg=YELLOW, state=DISABLED)
 
 # Add GUI elements on the screen
 website_label.grid(row=1, column=0, sticky="e")
